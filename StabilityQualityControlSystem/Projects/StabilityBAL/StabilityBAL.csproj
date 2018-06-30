@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{24C06DE7-5B5F-4927-8658-FA0E4E8716A2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>StabilityBAL</RootNamespace>
+    <AssemblyName>StabilityBAL</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BAL.cs" />
+    <Compile Include="bBatch.cs">
+      <DependentUpon>BAL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="bCountry.cs">
+      <DependentUpon>BAL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="bChamber.cs">
+      <DependentUpon>BAL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="bProduct.cs">
+      <DependentUpon>BAL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="bStabilityCheck.cs">
+      <DependentUpon>BAL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="bTest.cs">
+      <DependentUpon>BAL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="bTestReport.cs">
+      <DependentUpon>BAL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="bUser.cs">
+      <DependentUpon>BAL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StabilityDAL\StabilityDAL.csproj">
+      <Project>{3f671de5-dca3-42b6-90ab-3e5199c3343a}</Project>
+      <Name>StabilityDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StabilityInterface\StabilityInterface.csproj">
+      <Project>{d1042ff5-8c46-4439-a7af-0630b28a9907}</Project>
+      <Name>StabilityInterface</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
